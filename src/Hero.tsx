@@ -9,12 +9,18 @@ export function Hero() {
         <div className={styles.hero_motto}> Snap! It's in the Blockchain.</div>
         <div className={styles.hero_motto2}> Forever.</div>
         <div className={styles.hero_text}>
-          Orwello immortalizes your Discord messages. Invite Orwello to your
-          server and start minting.
+          Orwello immortalizes your Discord messages. Invite it to your server
+          and start minting.
         </div>
         <div>
-          <div className={styles.button_left}> &#129302; Invite Orwello</div>
-          <div className={styles.button_right}> Join the Community </div>
+          <a href="https://www.google.com">
+            <div className={styles.button_left}> &#129302; Invite Orwello</div>
+          </a>
+          <a href="https://discord.gg/8f3U36vw3z">
+            <div className={styles.button_right}>
+              &#128126; Join the Community
+            </div>
+          </a>
         </div>
       </div>
     </>
