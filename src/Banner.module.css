@@ -1,0 +1,35 @@
+
+
+.banner_header {
+    text-align: left;
+    display: inline;
+    font-family: 'Whitney Bold';
+    font-size: 200%;
+    color: white;
+    padding-right: 7px;
+}
+
+.banner_profile_image_wrapper {
+    display: inline;
+    float: left;
+    width: 60px;
+    height: 40px;
+}
+
+.banner_profile_image{
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    background:url("../dummy_avatar.png");
+    background-size: contain;
+}
+
+
+.banner_wrapper {
+    display: inline;
+}
+
+.banner_render {
+    background-color: #32353b;
+    padding: 20px;
+}

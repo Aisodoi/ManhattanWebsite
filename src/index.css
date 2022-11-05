@@ -1,0 +1,48 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+@font-face {
+  font-family: 'Whitney Italic';
+  src: url('../public/fonts/0ad909f272b0ece31d9ba2222d4c9e63.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Whitney Bold';
+  src: url('../public/fonts/3d0099ecfaf7718dad3fb6cb3c0ee650.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Whitney Semibold';
+  src: url('../public/fonts/5b558dbb0bb5347a9883248ec2f48be3.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Whitney Italic Semibold';
+  src: url('../public/fonts/6a4f76f9849935bd57822e9428481f1c.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Whitney Kindabold';
+  src: url('../public/fonts/10bf925aa3b5eea72cffce5ab37d6c49.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Whitney';
+  src: url('../public/fonts/127465eff7b4a91feb3f8ac7f3cb2bde.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Whitney Thin';
+  src: url('../public/fonts/b63701648c7e5a9d6ad67a0866cf9ecd.woff2') format('woff2');
+}
