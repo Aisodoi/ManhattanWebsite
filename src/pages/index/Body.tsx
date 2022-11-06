@@ -16,18 +16,18 @@ export const Body = () => {
       </div>
       <div className={styles.body_feature_wrapper}>
         <div className={styles.body_feature_widget_text_wrapper}>
-          2. Connect your ETH wallet to enable minting for your Discord account
+          2. Right-click any message on your server to mint it for all eternity
+        </div>
+        <img src={convoimage} className={styles.image}></img>
+      </div>
+      <div className={styles.body_feature_wrapper}>
+        <div className={styles.body_feature_widget_text_wrapper}>
+          3. Connect your ETH wallet to enable minting for your Discord account
           <div className={styles.smalltext}>
             (see Guide at Community for more details)
           </div>
         </div>
         <img src={etherimage} className={styles.image}></img>
-      </div>
-      <div className={styles.body_feature_wrapper}>
-        <div className={styles.body_feature_widget_text_wrapper}>
-          3. Right-click any message on your server to mint it for all eternity
-        </div>
-        <img src={convoimage} className={styles.image}></img>
       </div>
       <div className={styles.footer}>
         <div className={styles.footer_text}>
