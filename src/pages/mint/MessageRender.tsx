@@ -3,8 +3,9 @@ import { DiscordMessage } from "./types";
 
 import styles from "./MessageRender.module.css";
 
-
-export const MessageRender: React.FC<{ message: DiscordMessage }> = ({message}) => {
+export const MessageRender: React.FC<{ message: DiscordMessage }> = ({
+  message,
+}) => {
   return (
     <div className={styles.container}>
       <div className={styles.avatarContainer}>
@@ -13,10 +14,13 @@ export const MessageRender: React.FC<{ message: DiscordMessage }> = ({message}) 
       <div className={styles.bodyContainer}>
         <div className={styles.header}>
           <div className={styles.author}>{message.message.author.username}</div>
-          <div className={styles.timestamp}>{message.message.editedTimestamp || message.message.createdTimestamp}</div>
+          <div className={styles.timestamp}>
+            {message.message.editedTimestamp ||
+              message.message.createdTimestamp}
+          </div>
         </div>
         <div className={styles.messageBody}>{message.message.content}</div>
       </div>
     </div>
   );
-}
+};

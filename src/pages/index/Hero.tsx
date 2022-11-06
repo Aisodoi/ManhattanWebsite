@@ -13,7 +13,7 @@ export function Hero() {
           Orwello immortalizes your Discord messages. Invite it to your server
           and start minting. Fully open source.
         </div>
-        <div>
+        <div className={styles.buttons}>
           <a href={DISCORD_BOT_INVITE}>
             <div className={styles.button_left}> &#129302; Invite Orwello</div>
           </a>

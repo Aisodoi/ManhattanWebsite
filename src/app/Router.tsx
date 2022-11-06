@@ -1,12 +1,12 @@
 import * as React from "react";
 import {
-  createBrowserRouter, Navigate,
+  createBrowserRouter,
+  Navigate,
   RouterProvider,
 } from "react-router-dom";
 import { IndexPage } from "../pages/index/IndexPage";
 import { MintPage } from "../pages/mint/MintPage";
 import { CollectionPage } from "../pages/collection/CollectionPage";
-
 
 const router = createBrowserRouter([
   {
@@ -24,11 +24,9 @@ const router = createBrowserRouter([
   {
     path: "/collection",
     element: <CollectionPage />,
-  }
+  },
 ]);
 
-
 export const Router = () => {
-  return <RouterProvider router={router} />
-}
-
+  return <RouterProvider router={router} />;
+};

@@ -10,7 +10,10 @@ interface MintActionsProps {
   messageId: string;
   blobId: string;
 }
-export const MintActions: React.FC<MintActionsProps> = ({ messageId, blobId }) => {
+export const MintActions: React.FC<MintActionsProps> = ({
+  messageId,
+  blobId,
+}) => {
   const eth = useEth();
   const web3 = useWeb3();
   const contract = useContract(web3);
@@ -43,10 +46,12 @@ export const MintActions: React.FC<MintActionsProps> = ({ messageId, blobId }) =
   }, [messageId, contract, acc]);
 
   function mint() {
-    contract.methods.safeMint(acc, messageId, blobId).send({ from: acc }, (err: any, res: any) => {
-      console.log(err);
-      console.log(res);
-    });
+    contract.methods
+      .safeMint(acc, messageId, blobId)
+      .send({ from: acc }, (err: any, res: any) => {
+        console.log(err);
+        console.log(res);
+      });
   }
 
   if (!!owner) {
@@ -55,12 +60,12 @@ export const MintActions: React.FC<MintActionsProps> = ({ messageId, blobId }) =
       <div className={styles.ownedBy}>
         Owned by <a href={`https://${prefix}etherscan.io/address/${owner}`} target={"_blank"}>{owner}</a>
       </div>
-    )
+    );
   }
 
   return (
     <div>
-      {(acc !== undefined ? (
+      {acc !== undefined ? (
         <button className={styles.button} onClick={mint}>
           Mint NFT
         </button>
@@ -68,10 +73,10 @@ export const MintActions: React.FC<MintActionsProps> = ({ messageId, blobId }) =
         <button className={styles.button} onClick={connect}>
           Connect wallet
         </button>
-      ))}
+      )}
     </div>
   );
-}
+};
 
 export const MintPage = () => {
   const params = useParams<{ blobId: string }>();
@@ -82,19 +87,35 @@ export const MintPage = () => {
   } = useIpfs<DiscordMessage>(params.blobId);
 
   if (isLoading) {
-    return <Layout><p>Loading...</p></Layout>
+    return (
+      <Layout>
+        <p>Loading...</p>
+      </Layout>
+    );
   }
 
   if (error) {
-    return <Layout><p>{error.toString()}</p></Layout>
+    return (
+      <Layout>
+        <p>{error.toString()}</p>
+      </Layout>
+    );
   }
 
   if (!params.blobId) {
-    return <Layout><p>No data</p></Layout>
+    return (
+      <Layout>
+        <p>No data</p>
+      </Layout>
+    );
   }
 
   if (!message) {
-    return <Layout><p>No data</p></Layout>
+    return (
+      <Layout>
+        <p>No data</p>
+      </Layout>
+    );
   }
 
   return (
@@ -104,13 +125,9 @@ export const MintPage = () => {
           <MessageRender message={message} />
         </div>
         <div>
-          <MintActions
-            messageId={message.message.id}
-            blobId={params.blobId}
-          />
+          <MintActions messageId={message.message.id} blobId={params.blobId} />
         </div>
       </div>
     </Layout>
   );
-}
-
+};

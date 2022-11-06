@@ -56,6 +56,34 @@
     text-align: center;
 }
 
+.button {
+    transition-duration: 0.4s;
+    background-color: rgb(70, 70, 231);
+    font-family: 'Whitney Semibold';
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    margin: 15px;
+    border-radius: 40px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+
+}
+
+.button:hover {
+    background-color: white;
+    /* Green */
+    color: blue;
+}
+
+.buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
 
 .button_left {
     transition-duration: 0.4s;

@@ -1,11 +1,16 @@
 import { Layout } from "../../layout/Layout";
 import React, { useEffect, useState } from "react";
-import { useIpfs, useEth, useWeb3, useEthAcc, useContract } from "../mint/hooks";
+import {
+  useIpfs,
+  useEth,
+  useWeb3,
+  useEthAcc,
+  useContract,
+} from "../mint/hooks";
 import { DiscordMessage } from "../mint/types";
 import styles from "./CollectionPage.module.css";
 import { MessageRender } from "../mint/MessageRender";
 import { Link } from "react-router-dom";
-
 
 export const useOwnedTokens = (acc: string | undefined) => {
   const web3 = useWeb3();
@@ -26,39 +31,39 @@ export const useOwnedTokens = (acc: string | undefined) => {
     if (!balance || !acc) return;
     const promises = [];
     for (let i = 0; i < balance; i++) {
-      promises.push(new Promise<string>((resolve, reject) => {
-        contract.methods.tokenOfOwnerByIndex(acc, i).call((err: any, res: any) => {
-          if (err) return reject(err);
-          return resolve(res);
-        });
-      }).then(tokenId => {
-        return new Promise<string>((resolve, reject) => {
-          contract.methods.tokenURI(tokenId).call((err: any, res: any) => {
-            if (err) return reject(err);
-            const parts = res.split("/");
-            return resolve(parts[parts.length - 1]);
+      promises.push(
+        new Promise<string>((resolve, reject) => {
+          contract.methods
+            .tokenOfOwnerByIndex(acc, i)
+            .call((err: any, res: any) => {
+              if (err) return reject(err);
+              return resolve(res);
+            });
+        }).then((tokenId) => {
+          return new Promise<string>((resolve, reject) => {
+            contract.methods.tokenURI(tokenId).call((err: any, res: any) => {
+              if (err) return reject(err);
+              const parts = res.split("/");
+              return resolve(parts[parts.length - 1]);
+            });
           });
-        });
-      }));
+        })
+      );
     }
-    Promise.all(promises).then(ids => setIds(ids));
+    Promise.all(promises).then((ids) => setIds(ids));
   }, [contract, acc, balance]);
 
   return {
     balance,
     ids,
-  }
-}
-
+  };
+};
 
 export const OwnedTokens: React.FC = () => {
   const eth = useEth();
   const web3 = useWeb3();
   const { acc, refreshAcc } = useEthAcc(web3);
-  const {
-    ids: tokenIds,
-    balance,
-  } = useOwnedTokens(acc);
+  const { ids: tokenIds, balance } = useOwnedTokens(acc);
 
   function connect() {
     if (!eth) return;
@@ -97,21 +102,19 @@ export const OwnedTokens: React.FC = () => {
     <div>
       <h3>Your Collection</h3>
       <div className={styles.messageList}>
-        {tokenIds.map(x => <Message key={x} blobId={x} />)}
+        {tokenIds.map((x) => (
+          <Message key={x} blobId={x} />
+        ))}
       </div>
     </div>
   );
-}
+};
 
 interface MessageProps {
   blobId: string;
 }
 const Message: React.FC<MessageProps> = ({ blobId }) => {
-  const {
-    data: message,
-    error,
-    isLoading,
-  } = useIpfs<DiscordMessage>(blobId);
+  const { data: message, error, isLoading } = useIpfs<DiscordMessage>(blobId);
 
   if (isLoading) {
     return <p>Loading...</p>;
@@ -136,10 +139,9 @@ const Message: React.FC<MessageProps> = ({ blobId }) => {
       </div>
     </Link>
   );
-}
+};
 
 export const CollectionPage = () => {
-
   return (
     <Layout>
       <div className={styles.container}>
@@ -147,5 +149,4 @@ export const CollectionPage = () => {
       </div>
     </Layout>
   );
-}
-
+};

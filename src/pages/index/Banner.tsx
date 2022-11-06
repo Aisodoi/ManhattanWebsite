@@ -1,5 +1,5 @@
-import React from 'react';
-import styles from './Banner.module.css';
+import React from "react";
+import styles from "./Banner.module.css";
 import { Link } from "react-router-dom";
 
 export function Banner() {
@@ -10,9 +10,7 @@ export function Banner() {
           <div className={styles.banner_profile_image} />
         </div>
         <div className={styles.banner_wrapper}>
-          <div className={styles.banner_header}>
-            Orwello
-          </div>
+          <div className={styles.banner_header}>Orwello</div>
         </div>
       </Link>
       {/*<Link to={"/browse"}>*/}
@@ -24,9 +22,7 @@ export function Banner() {
       {/*</Link>*/}
       <Link to={"/collection"}>
         <div className={styles.collection}>
-          <div className={styles.navLink}>
-            My Collection
-          </div>
+          <div className={styles.navLink}>My Collection</div>
         </div>
       </Link>
     </div>
