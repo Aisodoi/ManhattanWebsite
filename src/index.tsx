@@ -1,9 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import {App, Body} from './App';
-import {Banner} from './Banner';
-import {Hero} from './Hero';
+import {App, Body} from './pages/index/App';
+import {Banner} from './pages/index/Banner';
+import {Hero} from './pages/index/Hero';
 import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(

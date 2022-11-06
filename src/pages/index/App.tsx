@@ -1,10 +1,10 @@
 import React from "react";
-import logo from "./logo.svg";
+import logo from "../../logo.svg";
 import "./App.css";
 import styles from "./Body.module.css";
-import orwelloimage from "./orwelloserver.png";
-import etherimage from "./ether.png";
-import convoimage from "./convo.png";
+import orwelloimage from "../../orwelloserver.png";
+import etherimage from "../../ether.png";
+import convoimage from "../../convo.png";
 
 export function App() {
   return (

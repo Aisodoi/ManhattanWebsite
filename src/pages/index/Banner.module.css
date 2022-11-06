@@ -20,7 +20,7 @@
     border-radius: 50%;
     width: 40px;
     height: 40px;
-    background:url("../dummy_avatar.png");
+    background:url("../../../dummy_avatar.png");
     background-size: contain;
 }
 

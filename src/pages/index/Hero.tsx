@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./Hero.module.css";
-import { DISCORD_COMMUNITY_URL, DISCORD_BOT_INVITE } from "./config";
+import { DISCORD_COMMUNITY_URL, DISCORD_BOT_INVITE } from "../../config";
 
 export function Hero() {
   return (
