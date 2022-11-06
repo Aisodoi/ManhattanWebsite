@@ -17,7 +17,7 @@ export const MessageRender: React.FC<{ message: DiscordMessage }> = ({
           <div className={styles.author}>{message.message.author.username}</div>
           <div className={styles.timestamp}>
             {format(new Date(message.message.editedTimestamp ||
-              message.message.createdTimestamp), "HH:mm dd.MM.yyyy")}
+              message.message.createdTimestamp), "p P")}
           </div>
         </div>
         <div className={styles.messageBody}>{message.message.content}</div>
