@@ -2,6 +2,7 @@ import React from "react";
 import logo from "./logo.svg";
 import "./App.css";
 import styles from "./Body.module.css";
+import orwelloimage from "./orwelloserver.png";
 
 export function App() {
   return (
@@ -32,7 +33,7 @@ export function Body() {
         <div className={styles.body_feature_widget_text_wrapper}>
           1. Add Orwello to your server with one click
         </div>
-        <div className={styles.body_feature_widget_1}></div>
+        <img src={orwelloimage} className={styles.image}></img>
       </div>
       <div className={styles.body_feature_wrapper}>
         <div className={styles.body_feature_widget_text_wrapper}>
