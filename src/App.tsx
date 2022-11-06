@@ -3,6 +3,8 @@ import logo from "./logo.svg";
 import "./App.css";
 import styles from "./Body.module.css";
 import orwelloimage from "./orwelloserver.png";
+import etherimage from "./ether.png";
+import convoimage from "./convo.png";
 
 export function App() {
   return (
@@ -40,13 +42,13 @@ export function Body() {
           2. Connect your ETH wallet to enable minting for your Discord account
           <div className={styles.smalltext}>(see Guide for more details)</div>
         </div>
-        <div className={styles.body_feature_widget_2}></div>
+        <img src={etherimage} className={styles.image}></img>
       </div>
       <div className={styles.body_feature_wrapper}>
         <div className={styles.body_feature_widget_text_wrapper}>
           3. Right-click any message on your server to mint it for all eternity
         </div>
-        <div className={styles.body_feature_widget_3}></div>
+        <img src={convoimage} className={styles.image}></img>
       </div>
       <div className={styles.footer}></div>
     </div>
