@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import Web3 from "web3";
 import abi from "./abi.json";
 
@@ -59,7 +59,10 @@ export const useEth = () => {
 };
 
 export const useWeb3 = () => {
-  return new Web3(Web3.givenProvider || "https://cloudflare-eth.com");
+  return useMemo(() =>
+    new Web3(Web3.givenProvider || "https://cloudflare-eth.com"),
+    []
+  );
 }
 
 export const useEthAcc = (web3: Web3) => {
@@ -80,8 +83,8 @@ export const useEthAcc = (web3: Web3) => {
 }
 
 export const useContract = (web3: Web3) => {
-  return new web3.eth.Contract(
+  return useMemo(() => new web3.eth.Contract(
     abi as any,
     "0x17a03ec1dF5Dc764f916D35AD047de003129a34F",
-  );
+  ), [web3]);
 }

@@ -5,6 +5,7 @@ import {
 } from "react-router-dom";
 import { IndexPage } from "../pages/index/IndexPage";
 import { MintPage } from "../pages/mint/MintPage";
+import { CollectionPage } from "../pages/collection/CollectionPage";
 
 
 const router = createBrowserRouter([
@@ -19,6 +20,10 @@ const router = createBrowserRouter([
   {
     path: "/mint/:blobId",
     element: <MintPage />,
+  },
+  {
+    path: "/collection",
+    element: <CollectionPage />,
   }
 ]);
 
