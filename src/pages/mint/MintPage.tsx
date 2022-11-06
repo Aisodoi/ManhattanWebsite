@@ -1,12 +1,13 @@
 import { useParams } from "react-router-dom";
+import { Layout } from "../../layout/Layout";
 
 
 export const MintPage = () => {
   const params = useParams();
 
   return (
-    <div>
+    <Layout>
       IPFS Blob ID: {params.blobId}
-    </div>
+    </Layout>
   );
 }
