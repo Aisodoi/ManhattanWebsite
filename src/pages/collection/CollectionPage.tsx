@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import { useIpfs, useEth, useWeb3, useEthAcc, useContract } from "../mint/hooks";
 import { DiscordMessage } from "../mint/types";
 import styles from "../mint/MintPage.module.css";
+import { MessageRender } from "../mint/MessageRender";
 
 
 export const useOwnedTokens = (acc: string | undefined) => {
@@ -28,6 +29,14 @@ export const useOwnedTokens = (acc: string | undefined) => {
         contract.methods.tokenOfOwnerByIndex(acc, i).call((err: any, res: any) => {
           if (err) return reject(err);
           return resolve(res);
+        });
+      }).then(tokenId => {
+        return new Promise<string>((resolve, reject) => {
+          contract.methods.tokenURI(tokenId).call((err: any, res: any) => {
+            if (err) return reject(err);
+            const parts = res.split("/");
+            return resolve(parts[parts.length - 1]);
+          });
         });
       }));
     }
@@ -86,12 +95,15 @@ export const OwnedTokens: React.FC = () => {
   return (
     <div>
       <h3>Balance: {balance}</h3>
-      {tokenIds.map(x => <p key={x}>{x}</p>)}
+      {tokenIds.map(x => <Message key={x} blobId={x} />)}
     </div>
   );
 }
 
-const Message = (blobId: string) => {
+interface MessageProps {
+  blobId: string;
+}
+const Message: React.FC<MessageProps> = ({ blobId }) => {
   const {
     data: message,
     error,
@@ -113,6 +125,12 @@ const Message = (blobId: string) => {
   if (!message) {
     return <Layout><p>No data</p></Layout>
   }
+
+  return (
+    <div className={styles.messageContainer}>
+      <MessageRender message={message} />
+    </div>
+  );
 }
 
 export const CollectionPage = () => {
