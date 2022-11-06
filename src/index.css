@@ -18,6 +18,14 @@ body {
   box-sizing: border-box;
 }
 
+a,
+a:active,
+a:hover,
+a:visited {
+  text-decoration: none;
+  color: #3030be;
+}
+
 button {
   display: block;
   width: 100%;

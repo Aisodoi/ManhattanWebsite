@@ -14,13 +14,20 @@ export function Banner() {
             Orwello
           </div>
         </div>
-        <Link to={"/collection"}>
-          <div className={styles.collection}>
-            <div className={styles.navLink}>
-              Collection
-            </div>
+      </Link>
+      {/*<Link to={"/browse"}>*/}
+      {/*  <div className={styles.collection}>*/}
+      {/*    <div className={styles.navLink}>*/}
+      {/*      Browse All*/}
+      {/*    </div>*/}
+      {/*  </div>*/}
+      {/*</Link>*/}
+      <Link to={"/collection"}>
+        <div className={styles.collection}>
+          <div className={styles.navLink}>
+            My Collection
           </div>
-        </Link>
+        </div>
       </Link>
     </div>
   );

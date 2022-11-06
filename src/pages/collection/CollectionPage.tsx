@@ -4,6 +4,7 @@ import { useIpfs, useEth, useWeb3, useEthAcc, useContract } from "../mint/hooks"
 import { DiscordMessage } from "../mint/types";
 import styles from "./CollectionPage.module.css";
 import { MessageRender } from "../mint/MessageRender";
+import { Link } from "react-router-dom";
 
 
 export const useOwnedTokens = (acc: string | undefined) => {
@@ -94,7 +95,7 @@ export const OwnedTokens: React.FC = () => {
 
   return (
     <div>
-      <h3>Balance: {balance}</h3>
+      <h3>Your Collection</h3>
       <div className={styles.messageList}>
         {tokenIds.map(x => <Message key={x} blobId={x} />)}
       </div>
@@ -113,25 +114,27 @@ const Message: React.FC<MessageProps> = ({ blobId }) => {
   } = useIpfs<DiscordMessage>(blobId);
 
   if (isLoading) {
-    return <Layout><p>Loading...</p></Layout>
+    return <p>Loading...</p>;
   }
 
   if (error) {
-    return <Layout><p>{error.toString()}</p></Layout>
+    return <p>{error.toString()}</p>;
   }
 
   if (!blobId) {
-    return <Layout><p>No data</p></Layout>
+    return <p>No data</p>;
   }
 
   if (!message) {
-    return <Layout><p>No data</p></Layout>
+    return <p>No data</p>;
   }
 
   return (
-    <div className={styles.messageContainer}>
-      <MessageRender message={message} />
-    </div>
+    <Link to={`/mint/${blobId}`}>
+      <div className={styles.messageContainer}>
+        <MessageRender message={message} />
+      </div>
+    </Link>
   );
 }
 

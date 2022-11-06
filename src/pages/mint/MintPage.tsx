@@ -50,8 +50,8 @@ export const MintActions: React.FC<MintActionsProps> = ({ messageId, blobId }) =
 
   if (!!owner) {
     return (
-      <div>
-        Owned by {owner}
+      <div className={styles.ownedBy}>
+        Owned by <a href={`https://etherscan.io/address/${owner}`} target={"_blank"}>{owner}</a>
       </div>
     )
   }
