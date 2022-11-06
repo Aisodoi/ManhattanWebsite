@@ -55,7 +55,7 @@
         color: white;
         padding: 15px 32px;
         margin: 15px;
-        border-radius: 20px;
+        border-radius: 40px;
         text-align: center;
         text-decoration: none;
         display: inline-block;
@@ -75,7 +75,7 @@
     border: none;
     color: white;
     padding: 15px 32px;
-    border-radius: 20px;
+    border-radius: 40px;
     margin: 15px;
     text-align: center;
     text-decoration: none;
@@ -87,4 +87,9 @@
     background-color: white;
     /* Green */
     color: #4CAF50;
+}
+
+.counter {
+    font-family: "Whitney";
+    font-size: 55%;
 }
