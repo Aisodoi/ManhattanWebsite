@@ -15,3 +15,8 @@
     background-color: rgba(61, 65, 72, 0.97);
     filter: drop-shadow(5px 5px 4px rgba(0, 0, 0, 0.2));
 }
+
+
+.button {
+    margin-top: 20px;
+}

@@ -42,11 +42,7 @@ export const MintActions: React.FC<MintActionsProps> = ({ messageId, blobId }) =
   }, [messageId, contract, acc]);
 
   function mint() {
-    contract.methods.safeMint(acc, messageId, blobId).send({
-      from: acc,
-      gasPrice: web3.utils.toHex(0),
-      gasLimit: web3.utils.toHex(5000000)
-    }, (err: any, res: any) => {
+    contract.methods.safeMint(acc, messageId, blobId).send({ from: acc }, (err: any, res: any) => {
       console.log(err);
       console.log(res);
     });
@@ -63,11 +59,11 @@ export const MintActions: React.FC<MintActionsProps> = ({ messageId, blobId }) =
   return (
     <div>
       {(acc !== undefined ? (
-        <button className={undefined} onClick={mint}>
+        <button className={styles.button} onClick={mint}>
           Mint NFT
         </button>
       ) : (
-        <button className={undefined} onClick={connect}>
+        <button className={styles.button} onClick={connect}>
           Connect wallet
         </button>
       ))}
