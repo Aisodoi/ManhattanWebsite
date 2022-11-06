@@ -2,7 +2,18 @@ import React from "react";
 import styles from "./Hero.module.css";
 import { DISCORD_COMMUNITY_URL, DISCORD_BOT_INVITE } from "../../config";
 
+const useServerState = () => {
+  const [state, setState] = React.useState<{ count: number, servers: number }>({ count: 0, servers: 0 });
+  React.useEffect(() => {
+    fetch('https://manhattanapi-production.up.railway.app/web/state')
+      .then((resp) => resp.json())
+      .then(data => setState(data));
+  }, []);
+  return state;
+};
+
 export function Hero() {
+  const { count, servers } = useServerState();
   return (
     <>
       <div className={styles.hero_wrapper}>
@@ -24,7 +35,7 @@ export function Hero() {
           </a>
         </div>
         <div className={styles.counter}>
-          A total of 0 messages minted across 0 servers
+          A total of {count} messages minted across {servers} servers
         </div>
       </div>
     </>
