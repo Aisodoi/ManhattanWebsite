@@ -17,7 +17,9 @@ export const Body = () => {
       <div className={styles.body_feature_wrapper}>
         <div className={styles.body_feature_widget_text_wrapper}>
           2. Connect your ETH wallet to enable minting for your Discord account
-          <div className={styles.smalltext}>(see Guide for more details)</div>
+          <div className={styles.smalltext}>
+            (see Guide at Community for more details)
+          </div>
         </div>
         <img src={etherimage} className={styles.image}></img>
       </div>
