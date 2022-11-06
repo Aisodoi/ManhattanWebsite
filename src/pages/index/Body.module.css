@@ -72,6 +72,15 @@
     height: 400px;
     color: white;
     font-family: 'Whitney';
+    display: flex;
     background: rgb(122, 22, 129);
         background: linear-gradient(0deg, rgb(134, 26, 142) 0%,  #36393f 100%);
+}
+
+.footer_text{
+    margin: 10%;
+    text-align:center;
+    align-self: flex-end;
+        color: white;
+            font-family: 'Whitney';
 }

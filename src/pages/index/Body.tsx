@@ -27,7 +27,11 @@ export const Body = () => {
         </div>
         <img src={convoimage} className={styles.image}></img>
       </div>
-      <div className={styles.footer}></div>
+      <div className={styles.footer}>
+        <div className={styles.footer_text}>
+          Copyright (c) Aisodoi Oy 2022. Some rights reserved I guess.
+        </div>
+      </div>
     </div>
   );
-}
+};
