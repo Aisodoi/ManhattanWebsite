@@ -7,17 +7,19 @@
 }
 
 .header {
+    display: flex;
+    flex-direction: row;
+    gap: 7px;
+    align-items: center;
+}
+
+.author {
     text-align: left;
-    display: inline;
     color: white;
-    padding-right: 7px;
 }
 
 .avatarContainer {
-    display: inline;
-    float: left;
-    width: 60px;
-    height: 40px;
+    padding: 4px;
 }
 
 .avatar{
@@ -31,15 +33,19 @@
 .timestamp {
     display: inline;
     color: #a3a6aa;
-    font-size: 80%;
+    font-size: 12px;
 }
 
 .bodyContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
 }
 
 .container {
     background-color: #36393f;
-    padding: 20px;
+    padding: 8px;
+    gap: 8px;
     display: flex;
     flex-direction: row;
 }
