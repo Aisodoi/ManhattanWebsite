@@ -2,7 +2,6 @@
 .messageBody {
     text-align: left;
     font-family: 'Whitney Thin';
-    background-color: #36393f;
     color: #dcddde;
 }
 
@@ -43,7 +42,6 @@
 }
 
 .container {
-    background-color: #36393f;
     padding: 8px;
     gap: 8px;
     display: flex;

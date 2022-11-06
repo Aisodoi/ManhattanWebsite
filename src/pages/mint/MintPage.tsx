@@ -4,6 +4,7 @@ import React from "react";
 import { useIpfs } from "./hooks";
 import { DiscordMessage } from "./types";
 import { MessageRender } from "./MessageRender";
+import styles from "./MintPage.module.css";
 
 
 export const MintPage = () => {
@@ -22,9 +23,17 @@ export const MintPage = () => {
     return <Layout><p>{error.toString()}</p></Layout>
   }
 
+  if (!message) {
+    return <Layout><p>No data</p></Layout>
+  }
+
   return (
     <Layout>
-      { !!message ? <MessageRender message={message} /> : <p>No data</p> }
+      <div className={styles.container}>
+        <div className={styles.messageContainer}>
+          <MessageRender message={message} />
+        </div>
+      </div>
     </Layout>
   );
 }
