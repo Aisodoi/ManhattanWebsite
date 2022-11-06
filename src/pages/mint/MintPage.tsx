@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom";
 import { Layout } from "../../layout/Layout";
 import React, { useEffect, useState } from "react";
-import { useIpfs, useEth, useWeb3, useEthAcc, useContract } from "./hooks";
+import { useIpfs, useEth, useWeb3, useEthAcc, useContract, useNetworkType } from "./hooks";
 import { DiscordMessage } from "./types";
 import { MessageRender } from "./MessageRender";
 import styles from "./MintPage.module.css";
@@ -14,6 +14,7 @@ export const MintActions: React.FC<MintActionsProps> = ({ messageId, blobId }) =
   const eth = useEth();
   const web3 = useWeb3();
   const contract = useContract(web3);
+  const networkType = useNetworkType(web3);
   const { acc, refreshAcc } = useEthAcc(web3);
   // const [acc, setAcc] = useState<string | undefined>(undefined);
   const [owner, setOwner] = useState<string | undefined>(undefined);
@@ -49,9 +50,10 @@ export const MintActions: React.FC<MintActionsProps> = ({ messageId, blobId }) =
   }
 
   if (!!owner) {
+    const prefix = networkType === "goerli" ? "goerli." : "";
     return (
       <div className={styles.ownedBy}>
-        Owned by <a href={`https://etherscan.io/address/${owner}`} target={"_blank"}>{owner}</a>
+        Owned by <a href={`https://${prefix}etherscan.io/address/${owner}`} target={"_blank"}>{owner}</a>
       </div>
     )
   }

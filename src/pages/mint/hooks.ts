@@ -82,9 +82,24 @@ export const useEthAcc = (web3: Web3) => {
   };
 }
 
+
+const MAINNET_CONTRACT = "0x71Ef9e09A5D1c1DdD3784125372B273642693811";
+const GOERLI_CONTRACT = "0x17a03ec1dF5Dc764f916D35AD047de003129a34F";
+
+export const useNetworkType = (web3: Web3): string => {
+  const [type, setType] = useState<string>("goerli");
+  useEffect(() => {
+    web3.eth.net.getNetworkType().then(setType);
+  }, [web3]);
+  return type;
+}
+
 export const useContract = (web3: Web3) => {
-  return useMemo(() => new web3.eth.Contract(
-    abi as any,
-    "0x17a03ec1dF5Dc764f916D35AD047de003129a34F",
-  ), [web3]);
+  const type = useNetworkType(web3);
+  return useMemo(() => {
+    return new web3.eth.Contract(
+      abi as any,
+      type === "goerli" ? GOERLI_CONTRACT : MAINNET_CONTRACT,
+    )
+  }, [type, web3]);
 }
