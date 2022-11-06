@@ -31,7 +31,7 @@ export const Body = () => {
       </div>
       <div className={styles.footer}>
         <div className={styles.footer_text}>
-          Copyright (c) Aisodoi Oy 2022. Some rights reserved I guess.
+          Copyright (c) Aisodoi Oy 2022. Some rights probably reserved.
         </div>
       </div>
     </div>
