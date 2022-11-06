@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom";
 import { Layout } from "../../layout/Layout";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useIpfs, useEth, useWeb3, useEthAcc, useContract } from "./hooks";
 import { DiscordMessage } from "./types";
 import { MessageRender } from "./MessageRender";
@@ -16,6 +16,7 @@ export const MintActions: React.FC<MintActionsProps> = ({ messageId, blobId }) =
   const contract = useContract(web3);
   const { acc, refreshAcc } = useEthAcc(web3);
   // const [acc, setAcc] = useState<string | undefined>(undefined);
+  const [owner, setOwner] = useState<string | undefined>(undefined);
 
   function connect() {
     if (!eth) return;
@@ -32,8 +33,15 @@ export const MintActions: React.FC<MintActionsProps> = ({ messageId, blobId }) =
       });
   }
 
+  useEffect(() => {
+    contract.methods.ownerOf(messageId).call((err: any, res: any) => {
+      console.log(err);
+      console.log(res);
+      setOwner(res);
+    });
+  }, [messageId, contract, acc]);
+
   function mint() {
-    console.log(messageId);
     contract.methods.safeMint(acc, messageId, blobId).send({
       from: acc,
       gasPrice: web3.utils.toHex(0),
@@ -42,6 +50,14 @@ export const MintActions: React.FC<MintActionsProps> = ({ messageId, blobId }) =
       console.log(err);
       console.log(res);
     });
+  }
+
+  if (!!owner) {
+    return (
+      <div>
+        Owned by {owner}
+      </div>
+    )
   }
 
   return (
