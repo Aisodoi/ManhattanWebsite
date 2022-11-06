@@ -1,0 +1,23 @@
+
+.container {
+    padding-top: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.messageContainer {
+    max-width: 900px;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 12px;
+    box-sizing: border-box;
+    padding: 8px 8px 16px;
+    /*background-color: #36393f;*/
+    background-color: rgba(61, 65, 72, 0.97);
+    filter: drop-shadow(5px 5px 4px rgba(0, 0, 0, 0.2));
+}
+
+.messageList {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}

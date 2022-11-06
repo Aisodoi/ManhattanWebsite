@@ -2,7 +2,7 @@ import { Layout } from "../../layout/Layout";
 import React, { useEffect, useState } from "react";
 import { useIpfs, useEth, useWeb3, useEthAcc, useContract } from "../mint/hooks";
 import { DiscordMessage } from "../mint/types";
-import styles from "../mint/MintPage.module.css";
+import styles from "./CollectionPage.module.css";
 import { MessageRender } from "../mint/MessageRender";
 
 
@@ -95,7 +95,9 @@ export const OwnedTokens: React.FC = () => {
   return (
     <div>
       <h3>Balance: {balance}</h3>
-      {tokenIds.map(x => <Message key={x} blobId={x} />)}
+      <div className={styles.messageList}>
+        {tokenIds.map(x => <Message key={x} blobId={x} />)}
+      </div>
     </div>
   );
 }
