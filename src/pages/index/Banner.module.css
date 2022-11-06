@@ -24,6 +24,20 @@
     background-size: contain;
 }
 
+.collection {
+    display: inline;
+    margin-left: 20px;
+}
+
+.navLink {
+    text-align: left;
+    display: inline;
+    font-family: 'Whitney Bold';
+    font-size: 150%;
+    color: white;
+    padding-right: 7px;
+}
+
 
 .banner_wrapper {
     display: inline;
