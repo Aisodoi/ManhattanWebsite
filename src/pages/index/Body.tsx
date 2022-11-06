@@ -1,33 +1,10 @@
 import React from "react";
-import logo from "../../logo.svg";
-import "./App.css";
 import styles from "./Body.module.css";
 import orwelloimage from "../../orwelloserver.png";
 import etherimage from "../../ether.png";
 import convoimage from "../../convo.png";
 
-export function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
-
-export function Body() {
+export const Body = () => {
   return (
     <div className={styles.body_wrapper}>
       <div className={styles.body_header}>Features</div>
