@@ -11,6 +11,8 @@
 .content {
     background-color: #36393f;
     flex-grow: 1;
+    display: flex;
+    justify-content: center;
 }
 
 .footer {
