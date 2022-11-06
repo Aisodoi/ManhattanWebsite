@@ -1,5 +1,6 @@
 import React from "react";
 import { DiscordMessage } from "./types";
+import { format } from "date-fns";
 
 import styles from "./MessageRender.module.css";
 
@@ -15,8 +16,8 @@ export const MessageRender: React.FC<{ message: DiscordMessage }> = ({
         <div className={styles.header}>
           <div className={styles.author}>{message.message.author.username}</div>
           <div className={styles.timestamp}>
-            {message.message.editedTimestamp ||
-              message.message.createdTimestamp}
+            {format(new Date(message.message.editedTimestamp ||
+              message.message.createdTimestamp), "HH:mm dd.MM.yyyy")}
           </div>
         </div>
         <div className={styles.messageBody}>{message.message.content}</div>
